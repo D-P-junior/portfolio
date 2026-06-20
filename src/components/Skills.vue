@@ -163,13 +163,11 @@ const analystSkills = [
   { name: 'Python', category: 'analyse' },
   { name: 'Pandas', category: 'analyse' },
   { name: 'SQL/PostgreSQL', category: 'db' },
-  { name: 'Power BI/Streamlit', category: 'viz' },
+  { name: 'Power BI', category: 'viz' },
   { name: 'Php/Laravel', category: 'db' },
   { name: 'Scikit-learn', category: 'ml' },
-  { name: 'NLTK', category: 'ml' },
-  { name: 'Matplotlib', category: 'viz' },
-  { name: 'BeautifulSoup', category: 'analyse' },
   { name: 'Git/Github', category: 'tools' },
+  { name: 'Linux', category: 'tools' },
   { name: 'SQLAlchemy', category: 'db' },
 ]
 
@@ -184,6 +182,7 @@ const engineerSkills = [
   { name: 'Git/Github', category: 'tools' },
   { name: 'FastAPI', category: 'tools' },
   { name: 'Php/Laravel', category: 'db' },
+  { name: 'Linux', category: 'tools' },
 ]
 
 const currentSkills = computed(() =>
