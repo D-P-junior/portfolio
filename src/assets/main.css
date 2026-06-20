@@ -21,3 +21,7 @@ body {
   --color-analyst: #3B82F6;
   --color-engineer: #06B6D4;
 }
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}

@@ -1,5 +1,6 @@
 <template>
-  <div :class="[store.currentTheme === 'dark' ? 'dark' : '']">
+  <div class="min-h-screen transition-all duration-500 overflow-x-hidden"
+  :class="store.currentTheme === 'dark' ? 'bg-[#0B1120] text-[#F8FAFC]' : 'bg-[#FFFFFF] text-[#111827]'">
     <div class="min-h-screen transition-all duration-500"
       :class="store.currentTheme === 'dark' ? 'bg-[#0B1120] text-[#F8FAFC]' : 'bg-[#FFFFFF] text-[#111827]'">
 
