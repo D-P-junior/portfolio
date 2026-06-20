@@ -171,7 +171,7 @@
           <!-- Logo + description -->
           <div class="space-y-4 max-w-xs">
             <div class="font-['Space_Grotesk'] font-bold text-2xl">
-              <span :class="store.currentMode === 'analyst' ? 'text-[#3B82F6]' : 'text-[#06B6D4]'">N</span>nova
+              <span :class="store.currentMode === 'analyst' ? 'text-[#3B82F6]' : 'text-[#06B6D4]'">D.P </span>Junior
             </div>
             <p class="font-['Inter'] text-xs opacity-40 leading-relaxed">
               Data Analyst Junior · Data Engineer Junior<br/>
@@ -243,7 +243,7 @@
           :class="store.currentTheme === 'dark' ? 'border-white/5' : 'border-black/5'"
         >
           <p class="font-['Inter'] text-xs opacity-30">
-            © 2026 <span class="font-semibold">Nnova</span> — Tous droits réservés · Abidjan, Côte d'Ivoire
+            © 2026 <span class="font-semibold">D.P Junior</span> — Tous droits réservés · Abidjan, Côte d'Ivoire
           </p>
         </div>
 

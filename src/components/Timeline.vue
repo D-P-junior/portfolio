@@ -182,28 +182,28 @@ const timelineItems = [
     title: 'Obtention du Baccalauréat serie D',
     subtitle: 'Diplôme international',
     description: 'Obtention du baccalauréat, première étape clé qui ouvre la voie vers les études supérieures et le monde professionnel.',
-    tag: '🎓 Diplôme',
+    tag: 'Diplôme',
   },
   {
     year: 'en cours',
     title: 'Licence Sciences & Technologies Géospatiales',
     subtitle: 'UVCI — Abidjan',
     description: 'Formation universitaire en sciences et technologies géospatiales, combinant rigueur académique et compétences techniques en analyse spatiale.',
-    tag: '🏫 Université',
+    tag: 'Université',
   },
   {
     year: '2025',
     title: 'Gérant de Cyber Café',
     subtitle: 'Entrepreneuriat — Abidjan',
     description: 'Gestion complète d\'un cyber café : administration, relation client, gestion financière et maintenance technique. Une expérience qui forge l\'autonomie et le sens des responsabilités.',
-    tag: '💼 Expérience pro',
+    tag: 'Expérience pro',
   },
   {
     year: '2026',
     title: 'Formation Data & IA',
     subtitle: 'WeCode / Epitech Abidjan',
     description: 'Programme intensif Data & Intelligence Artificielle : Python, SQL, Machine Learning, pipelines ETL, Deep Learning, NLP et projets réels en entreprise.',
-    tag: '🚀 Formation tech',
+    tag: 'Formation tech',
   },
 ]
 </script>

@@ -19,7 +19,10 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-12">
 
         <!-- Contenu gauche -->
-        <div class="flex-1 space-y-6">
+        <div
+          class="flex-1 space-y-6 transition-all duration-700"
+          :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
+        >
 
           <!-- Badge -->
           <div
@@ -36,22 +39,21 @@
           </div>
 
 
-
-          <!-- Nom -->
+          <!-- Nom avec typewriter -->
           <h1 class="font-['Space_Grotesk'] font-bold text-5xl md:text-7xl tracking-tight">
-            Dieu Privat Junior
+            {{ displayedName }}<span v-if="!nameComplete" class="animate-pulse">|</span>
           </h1>
 
-          <!-- Titre typewriter -->
+          <!-- Titre avec typewriter -->
           <h2
             class="font-['Space_Grotesk'] font-semibold text-2xl md:text-3xl transition-all duration-500"
             :class="store.currentMode === 'analyst' ? 'text-[#3B82F6]' : 'text-[#06B6D4]'"
           >
-            {{ displayedTitle }}<span class="animate-pulse">|</span>
+            {{ displayedTitle }}<span v-if="nameComplete" class="animate-pulse">|</span>
           </h2>
 
           <!-- Tagline -->
-          <p class="font-['Inter'] text-base md:text-lg opacity-70 max-w-xl leading-relaxed">
+          <p class="font-['Inter'] text-base md:text-lg opacity-70 max-w-xl leading-relaxed transition-all duration-500">
             {{ store.currentMode === 'analyst'
               ? "J'extrais, nettoie, analyse et visualise les données pour transformer des informations brutes en décisions éclairées."
               : "Je construis des pipelines de données robustes et des architectures temps réel pour alimenter les systèmes de décision." }}
@@ -67,7 +69,10 @@
               Voir mes projets
             </a>
             <a
-              href="#"
+              :href="store.currentMode === 'analyst' ? '/cv_analyst.pdf' : '/cv_engineer.pdf'"
+              :download="store.currentMode === 'analyst'
+                ? 'CV_Data_Analyst_Dieu_Privat_Junior.pdf'
+                : 'CV_Data_Engineer_Dieu_Privat_Junior.pdf'"
               class="px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 border font-['Inter']"
               :class="store.currentMode === 'analyst'
                 ? 'border-[#3B82F6] text-[#3B82F6] hover:bg-[#3B82F6]/10'
@@ -87,7 +92,10 @@
         </div>
 
         <!-- Contenu droite -->
-        <div class="flex-1 flex flex-col items-center gap-8">
+        <div
+          class="flex-1 flex flex-col items-center gap-8 transition-all duration-700 delay-300"
+          :class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
+        >
 
           <!-- Photo -->
           <div class="relative">
@@ -97,7 +105,7 @@
             ></div>
             <img
               src="./dpj.jpeg"
-              alt="junior"
+              alt="privat"
               class="relative w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 transition-all duration-500"
               :class="store.currentMode === 'analyst' ? 'border-[#3B82F6]/50' : 'border-[#06B6D4]/50'"
             />
@@ -125,14 +133,7 @@
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-      <span class="text-xs opacity-40 font-['Inter']">Scroll</span>
-      <div
-        class="w-px h-8 opacity-40"
-        :class="store.currentMode === 'analyst' ? 'bg-[#3B82F6]' : 'bg-[#06B6D4]'"
-      ></div>
-    </div>
+
 
   </section>
 </template>
@@ -142,27 +143,50 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { usePortfolioStore } from '../stores/index.js'
 
 const store = usePortfolioStore()
-const displayedTitle = ref('')
 
+const displayedName = ref('')
+const displayedTitle = ref('')
+const nameComplete = ref(false)
+const visible = ref(false)
+
+const NAME = 'Dieu Privat Junior'
 const titles = {
   analyst: 'Data Analyst Junior',
   engineer: 'Data Engineer Junior',
 }
 
-let typewriterInterval = null
+let typeInterval = null
 
-function startTypewriter(text) {
+function startTypewriter(mode) {
+  displayedName.value = ''
   displayedTitle.value = ''
+  nameComplete.value = false
+
   let i = 0
-  clearInterval(typewriterInterval)
-  typewriterInterval = setInterval(() => {
-    if (i < text.length) {
-      displayedTitle.value += text[i]
+  clearInterval(typeInterval)
+
+  // D'abord le nom
+  typeInterval = setInterval(() => {
+    if (i < NAME.length) {
+      displayedName.value += NAME[i]
       i++
     } else {
-      clearInterval(typewriterInterval)
+      clearInterval(typeInterval)
+      nameComplete.value = true
+
+      // Puis le titre
+      let j = 0
+      const title = titles[mode]
+      typeInterval = setInterval(() => {
+        if (j < title.length) {
+          displayedTitle.value += title[j]
+          j++
+        } else {
+          clearInterval(typeInterval)
+        }
+      }, 60)
     }
-  }, 80)
+  }, 100)
 }
 
 const currentStats = computed(() => {
@@ -184,10 +208,17 @@ const currentStats = computed(() => {
 })
 
 watch(() => store.currentMode, (newMode) => {
-  startTypewriter(titles[newMode])
+  visible.value = false
+  setTimeout(() => {
+    visible.value = true
+    startTypewriter(newMode)
+  }, 100)
 })
 
 onMounted(() => {
-  startTypewriter(titles[store.currentMode])
+  setTimeout(() => {
+    visible.value = true
+    startTypewriter(store.currentMode)
+  }, 100)
 })
 </script>

@@ -96,8 +96,8 @@
 
           <p class="font-['Inter'] text-base leading-relaxed opacity-75 transition-all duration-500">
             {{ store.currentMode === 'analyst'
-              ? "Je suis Nnova, Data Analyst Junior formé au programme Data & IA de WeCode / Epitech Abidjan. J'utilise Python, SQL, Excel et Power BI pour collecter, nettoyer, analyser et visualiser les données afin de produire des insights exploitables et des décisions business éclairées."
-              : "Je suis Nnova, Data Engineer Junior formé au programme Data & IA de WeCode / Epitech Abidjan. Je conçois et déploie des pipelines de données robustes, des architectures ETL temps réel et des infrastructures cloud pour alimenter les systèmes de décision." }}
+              ? "Data Analyst Junior formé au programme Data & IA de WeCode / Epitech Abidjan. J'utilise Python, SQL, et Power BI pour collecter, nettoyer, analyser et visualiser les données afin de produire des insights exploitables et des décisions business éclairées."
+              : "Data Engineer Junior formé au programme Data & IA de WeCode / Epitech Abidjan. Je conçois et déploie des pipelines de données robustes, des architectures ETL temps réel et des infrastructures cloud pour alimenter les systèmes de décision." }}
           </p>
 
           <p class="font-['Inter'] text-base leading-relaxed opacity-75">

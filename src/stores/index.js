@@ -10,8 +10,14 @@ export const usePortfolioStore = defineStore('portfolio', () => {
 
   // Changer de mode
   function setMode(mode) {
-    currentMode.value = mode
+  currentMode.value = mode
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (mode === 'analyst') {
+    document.documentElement.style.setProperty('--accent', '#3B82F6')
+  } else {
+    document.documentElement.style.setProperty('--accent', '#06B6D4')
   }
+}
 
   // Changer de thème
   function toggleTheme() {

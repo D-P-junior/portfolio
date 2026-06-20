@@ -16,3 +16,8 @@ body {
   font-family: 'Inter', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+:root {
+  --color-analyst: #3B82F6;
+  --color-engineer: #06B6D4;
+}
