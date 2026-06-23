@@ -104,7 +104,7 @@
               :class="store.currentMode === 'analyst' ? 'bg-[#3B82F6]' : 'bg-[#06B6D4]'"
             ></div>
             <img
-              src="./dpj.jpeg"
+              src="./WhatsApp Image 2026-06-23 at 18.35.34.jpeg"
               alt="privat"
               class="relative w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 transition-all duration-500"
               :class="store.currentMode === 'analyst' ? 'border-[#3B82F6]/50' : 'border-[#06B6D4]/50'"
